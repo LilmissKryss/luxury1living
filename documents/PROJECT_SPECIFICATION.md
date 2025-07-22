@@ -21,8 +21,8 @@ A luxury commercial cleaning website built with modern web technologies, featuri
 **Sections**:
 
 #### Hero Section
-- **Tagline**: "Where Clean Meets Class"
-- **CTAs**: "Get a Quote", "View Services"
+- **Tagline**: "Where Clean Meets Class", "Pure Luxury, Perfectly cleaned 
+- **CTAs**: "Get a Quote", "Sign Up"
 - **Effects**: Subtle shimmer animation on text, background gradient/motion
 - **Animation**: Lottie (spray bottle, mop, or sparkle)
 

@@ -5,20 +5,22 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import WhyChooseUs from './components/WhyChooseUs';
+import CTASection from './components/CTASection';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-export default function HomePage() {
+export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-300">
       <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <WhyChooseUs />
-        <ContactSection />
-      </main>
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <WhyChooseUs />
+      <CTASection />
+      <ContactSection />
+      <FAQSection />
       <Footer />
     </div>
   );

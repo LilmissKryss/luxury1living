@@ -12,8 +12,20 @@ const navLinks = [
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLDivElement>(null);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile nav on outside click
   useEffect(() => {
@@ -36,57 +48,63 @@ export default function Navigation() {
   }, [mobileOpen]);
 
   return (
-    <header className="flex items-center justify-between pt-4 pr-4 pb-4 pl-4 sm:px-6 border-b border-white/5 relative z-20">
-      <h1 className="text-lg sm:text-xl font-semibold text-white tracking-tight">Luxury 1 Living</h1>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-slate-900/95 backdrop-blur-md border-b border-white/10 shadow-lg' 
+        : 'bg-transparent border-b border-white/5'
+    }`}>
+      <div className="flex items-center justify-between pt-4 pr-4 pb-4 pl-4 sm:px-6 relative z-20">
+        <h1 className="text-lg sm:text-xl font-semibold text-white tracking-tight">Luxury 1 Living</h1>
 
-      {/* Mobile menu button */}
-      <button
-        id="menu-btn"
-        aria-label="Menu"
-        className="sm:hidden p-2 text-white"
-        aria-expanded={mobileOpen}
-        onClick={() => setMobileOpen((open) => !open)}
-        ref={menuBtnRef}
-      >
-        <Menu className="w-5 h-5" />
-      </button>
-
-      {/* Desktop nav */}
-      <nav className="hidden sm:flex items-center gap-8">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="text-sm hover:text-white transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
-        <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm transition-colors">Sign Up</button>
-        <button className="hover:bg-emerald-600 transition-colors text-sm font-semibold text-white bg-sky-400 rounded-lg pt-2 pr-4 pb-2 pl-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70">Book Now</button>
-      </nav>
-
-      {/* Mobile nav */}
-      {mobileOpen && (
-        <nav
-          id="mobile-nav"
-          ref={mobileNavRef}
-          className="absolute top-16 inset-x-0 bg-slate-900 border-b border-white/10 p-4 sm:hidden space-y-4 shadow-xl animate-fade-in z-30"
+        {/* Mobile menu button */}
+        <button
+          id="menu-btn"
+          aria-label="Menu"
+          className="sm:hidden p-2 text-white"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+          ref={menuBtnRef}
         >
+          <Menu className="w-5 h-5" />
+        </button>
+
+        {/* Desktop nav */}
+        <nav className="hidden sm:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block text-sm hover:text-white"
-              onClick={() => setMobileOpen(false)}
+              className="text-sm text-slate-300 hover:text-white transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <button className="w-full px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm mb-2">Sign Up</button>
-          <button className="w-full px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold">Book Now</button>
+          <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm transition-colors">Sign Up</button>
+          <button className="hover:bg-emerald-600 transition-colors text-sm font-semibold text-white bg-sky-400 rounded-lg pt-2 pr-4 pb-2 pl-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70">Book Now</button>
         </nav>
-      )}
+
+        {/* Mobile nav */}
+        {mobileOpen && (
+          <nav
+            id="mobile-nav"
+            ref={mobileNavRef}
+            className="absolute top-16 inset-x-0 bg-slate-900/95 backdrop-blur-md border-b border-white/10 p-4 sm:hidden space-y-4 shadow-xl animate-fade-in z-30"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="block text-sm text-slate-300 hover:text-white transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <button className="w-full px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm mb-2 transition-colors">Sign Up</button>
+            <button className="w-full px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold transition-colors">Book Now</button>
+          </nav>
+        )}
+      </div>
     </header>
   );
 } 
