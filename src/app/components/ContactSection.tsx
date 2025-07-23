@@ -215,6 +215,7 @@ export default function ContactSection() {
                   <option value="conroe">Conroe</option>
                   <option value="other">Other</option>
                 </select>
+
               </div>
             </div>
 
@@ -320,6 +321,25 @@ export default function ContactSection() {
                   <span className="text-sm">{area}</span>
                 </div>
               ))}
+            </div>
+            
+            {/* Service Area Reminder */}
+            <div className="mt-6 p-4 rounded-xl" style={{ backgroundColor: 'rgba(244, 230, 186, 0.1)', border: '1px solid rgba(244, 230, 186, 0.2)' }}>
+              <div className="flex items-start gap-3">
+                <div className="p-1.5 rounded-lg" style={{ backgroundColor: 'rgba(244, 230, 186, 0.2)' }}>
+                  <Phone className="w-4 h-4" style={{ color: 'rgb(244, 230, 186)' }} />
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-1" style={{ color: 'rgb(244, 230, 186)' }}>Don't see your area?</p>
+                  <p className="text-xs" style={{ color: 'rgba(244, 230, 186, 0.8)' }}>
+                    Give us a call at{' '}
+                    <a href="tel:281-721-0766" className="font-medium hover:opacity-80 transition-opacity" style={{ color: 'rgb(244, 230, 186)' }}>
+                      281-721-0766
+                    </a>
+                    {' '}to discuss service availability in your location.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
