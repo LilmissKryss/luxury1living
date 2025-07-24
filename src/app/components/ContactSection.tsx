@@ -52,10 +52,13 @@ export default function ContactSection() {
           src="/images/contact.jpg" 
           alt="" 
           className="w-full h-full object-cover"
-          style={{ opacity: 0.3 }}
+          style={{ 
+            opacity: 0.5,
+            filter: 'brightness(0.9) contrast(1.1)'
+          }}
         />
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-slate-900/70"></div>
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.5)' }}></div>
       </div>
       {/* Header */}
       <div className="text-center mb-16">
@@ -284,87 +287,104 @@ export default function ContactSection() {
           </form>
         </div>
 
-        {/* Right Card - Contact Information & Map */}
+        {/* Right Card - Contact Information & Image */}
         <div className="border border-white/20 rounded-2xl p-8 flex flex-col backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)' }}>
-          {/* Contact Information */}
-          <div className="space-y-6 mb-8">
-            <h4 className="text-xl font-semibold text-white">Contact Information</h4>
-            
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-sky-400/10 rounded-lg">
-                  <Phone className="w-4 h-4 text-sky-400" />
+          {/* Contact Information and Image Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <h4 className="text-xl font-semibold text-white">Contact Information</h4>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-sky-400/10 rounded-lg">
+                    <Phone className="w-4 h-4 text-sky-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Office Phone</p>
+                    <a 
+                      href="tel:281-721-0766" 
+                      className="text-slate-400 hover:text-sky-400 transition-colors cursor-pointer"
+                    >
+                      281-721-0766
+                    </a>
+                    <a 
+                      href="tel:888-834-0284" 
+                      className="block text-slate-400 hover:text-sky-400 transition-colors cursor-pointer"
+                    >
+                      Toll Free: 888-834-0284
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-medium">Office Phone</p>
-                  <a 
-                    href="tel:281-721-0766" 
-                    className="text-slate-400 hover:text-sky-400 transition-colors cursor-pointer"
-                  >
-                    281-721-0766
-                  </a>
-                  <a 
-                    href="tel:888-834-0284" 
-                    className="block text-slate-400 hover:text-sky-400 transition-colors cursor-pointer"
-                  >
-                    Toll Free: 888-834-0284
-                  </a>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-emerald-400/10 rounded-lg">
-                  <Mail className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-emerald-400/10 rounded-lg">
+                    <Mail className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Email</p>
+                    <a 
+                      href="mailto:info@lxy1living.com" 
+                      className="text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer"
+                    >
+                      info@lxy1living.com
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-medium">Email</p>
-                  <a 
-                    href="mailto:info@lxy1living.com" 
-                    className="text-slate-400 hover:text-emerald-400 transition-colors cursor-pointer"
-                  >
-                    info@lxy1living.com
-                  </a>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-purple-400/10 rounded-lg">
-                  <MapPin className="w-4 h-4 text-purple-400" />
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-purple-400/10 rounded-lg">
+                    <MapPin className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Address</p>
+                    <p className="text-slate-400">5900 Balcones Dr Ste 100</p>
+                    <p className="text-slate-400">Austin, TX 78731</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-medium">Address</p>
-                  <p className="text-slate-400">5900 Balcones Dr Ste 100</p>
-                  <p className="text-slate-400">Austin, TX 78731</p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-orange-400/10 rounded-lg">
-                  <Clock className="w-4 h-4 text-orange-400" />
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-orange-400/10 rounded-lg">
+                    <Clock className="w-4 h-4 text-orange-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Business Hours</p>
+                    <p className="text-slate-400">Monday – Friday: 8:00 AM – 6:00 PM</p>
+                    <p className="text-slate-400">Saturday: 9:00 AM – 5:00 PM</p>
+                    <p className="text-slate-400">Sunday: Closed</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-white font-medium">Business Hours</p>
-                  <p className="text-slate-400">Monday – Friday: 8:00 AM – 6:00 PM</p>
-                  <p className="text-slate-400">Saturday: 9:00 AM – 5:00 PM</p>
-                  <p className="text-slate-400">Sunday: Closed</p>
-                </div>
-              </div>
 
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-red-500/10 rounded-lg">
-                  <AlertCircle className="w-4 h-4 text-red-400" />
-                </div>
-                <div>
-                  <p className="text-white font-medium">Emergency Contact</p>
-                  <a 
-                    href="tel:281-721-0766" 
-                    className="text-slate-400 hover:text-red-400 transition-colors cursor-pointer"
-                  >
-                    281-721-0766
-                  </a>
-                  <p className="text-slate-400 text-sm">Available 24/7 for urgent cleaning needs</p>
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-red-500/10 rounded-lg">
+                    <AlertCircle className="w-4 h-4 text-red-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Emergency Contact</p>
+                    <a 
+                      href="tel:281-721-0766" 
+                      className="text-slate-400 hover:text-red-400 transition-colors cursor-pointer"
+                    >
+                      281-721-0766
+                    </a>
+                    <p className="text-slate-400 text-sm">Available 24/7 for urgent cleaning needs</p>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Contact Image */}
+            <div className="relative overflow-hidden rounded-xl">
+              <img 
+                src="/images/contact.jpg" 
+                alt="Luxury 1 Living Contact" 
+                className="w-full h-full object-cover rounded-xl"
+                style={{ 
+                  opacity: 0.8,
+                  filter: 'brightness(0.9) contrast(1.1)'
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent rounded-xl"></div>
             </div>
           </div>
 
@@ -393,23 +413,6 @@ export default function ContactSection() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Map */}
-          <div className="flex-1">
-            <div className="bg-slate-800/50 border border-white/10 rounded-xl overflow-hidden h-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.1234567890123!2d-97.7431!3d30.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2s5900%20Balcones%20Dr%20%23100%2C%20Austin%2C%20TX%2078731!5e0!3m2!1sen!2sus!4v1234567890123"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: '200px' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Luxury 1 Living Office Location"
-                className="w-full h-full"
-              ></iframe>
             </div>
           </div>
         </div>

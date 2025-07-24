@@ -171,7 +171,7 @@ export default function ServicesSection() {
         </div>
         <div className="text-left space-y-4">
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
-            At Luxury 1 Living, we believe a clean space is a reflection of your brand's excellence. That's why we offer luxury premium commercial cleaning solutions tailored to meet the unique needs of businesses across every industry. From office buildings and medical facilities to retail spaces and restaurants, our expertly trained team delivers meticulous results using eco-conscious products and modern cleaning techniques.  Whether you're looking for daily maintenance, deep cleaning, or specialty services, we're here to elevate your environment so you can focus on what matters most.Whether you're looking for daily maintenance, deep cleaning, or specialty services, we're here to elevate your environment so you can focus on what matters most.
+            At Luxury 1 Living, we believe a clean space is a reflection of your brand's excellence. That's why we offer luxury premium commercial cleaning solutions tailored to meet the unique needs of businesses across every industry. Whether you're looking for daily maintenance, deep cleaning, or specialty services, we're here to elevate your environment so you can focus on what matters most.
           </p>
         </div>
       </div>
@@ -254,16 +254,16 @@ export default function ServicesSection() {
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <img 
-            src="/images/ourprocess.jpeg" 
+            src="/images/ourprocess.jpg" 
             alt="" 
             className="w-full h-full object-cover"
             style={{ 
-              opacity: 0.5,
-              filter: 'brightness(0.7) contrast(1.1)'
+              opacity: 0.7,
+              filter: 'brightness(0.8) contrast(1.2)'
             }}
           />
           {/* Dark overlay to ensure text readability */}
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.4)' }}></div>
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.3)' }}></div>
         </div>
         
         <div className="text-center mb-16 relative z-10">

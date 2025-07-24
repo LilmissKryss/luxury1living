@@ -20,7 +20,7 @@ export default function AboutSection() {
           {/* Our Process background image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/ourprocess.jpeg" 
+              src="/images/ourprocess.jpg" 
               alt="" 
               className="w-full h-full object-cover opacity-5"
             />
@@ -55,7 +55,7 @@ export default function AboutSection() {
                 <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-sky-400 to-emerald-400 rounded-full"></div>
                   <div className="pl-8">
-                    <h3 className="text-2xl font-light text-white mb-4">Welcome to Luxury 1 Living</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent mb-4">Welcome to Luxury 1 Living</h3>
                     <p className="text-lg text-slate-300 leading-relaxed mb-4">
                       At Luxury 1 Living, cleanliness is more than a service it's an experience. We believe that a well maintained space should radiate sophistication, serenity, and care. Founded with the vision to redefine the standards of commercial cleaning, we serve clients who value precision, discretion, and polished results.
                     </p>
@@ -73,9 +73,18 @@ export default function AboutSection() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-400/5 to-emerald-400/5 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="relative z-10">
                     <h4 className="text-xl font-semibold text-white mb-3">Our Promise</h4>
-                    <p className="text-slate-300 leading-relaxed">
+                    <p className="text-slate-300 leading-relaxed mb-6">
                       Luxury 1 Living is not just our name it's our commitment to delivering pure luxury through perfectly cleaned spaces.
                     </p>
+                    {/* Founder's Signature */}
+                    <div className="mt-6 pt-4 border-t border-sky-400/20">
+                      <div className="text-right">
+                        <div className="text-sky-300 font-handwriting text-xl tracking-wider mb-1" style={{ fontFamily: 'Dancing Script, cursive' }}>
+                          Mary Allen
+                        </div>
+                        <p className="text-sm text-slate-400">Founder & CEO</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

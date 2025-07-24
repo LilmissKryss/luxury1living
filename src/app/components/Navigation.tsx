@@ -54,7 +54,7 @@ export default function Navigation() {
         : 'bg-transparent border-b border-white/5'
     }`}>
       <div className="flex items-center justify-between pt-4 pr-4 pb-4 pl-4 sm:px-6 relative z-20">
-        <h1 className="text-lg sm:text-xl font-semibold text-white tracking-tight">Luxury 1 Living</h1>
+        <a href="#home" className="text-lg sm:text-xl font-semibold text-white tracking-tight hover:text-sky-300 transition-colors cursor-pointer">Luxury 1 Living</a>
 
         {/* Mobile menu button */}
         <button
