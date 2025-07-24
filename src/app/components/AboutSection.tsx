@@ -9,6 +9,23 @@ export default function AboutSection() {
       <section id="about" className="relative isolate overflow-hidden py-24 sm:py-32">
         {/* Enhanced gradient background with animated elements */}
         <div className="absolute inset-0 -z-10">
+          {/* Mop background image */}
+          <div className="absolute inset-0">
+            <img 
+              src="/images/mop.jpg" 
+              alt="" 
+              className="w-full h-full object-cover opacity-10"
+            />
+          </div>
+          {/* Our Process background image */}
+          <div className="absolute inset-0">
+            <img 
+              src="/images/ourprocess.jpeg" 
+              alt="" 
+              className="w-full h-full object-cover opacity-5"
+            />
+          </div>
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-sky-600 via-emerald-600 to-purple-600 opacity-20"></div>
           {/* Floating geometric elements */}
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-sky-400/10 to-emerald-400/10 rounded-full blur-xl animate-pulse"></div>
@@ -16,132 +33,98 @@ export default function AboutSection() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-400/5 to-sky-400/5 rounded-full blur-2xl"></div>
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           {/* Enhanced Header Section */}
           <div className="max-w-4xl mx-auto text-center space-y-6 mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-400/10 border border-sky-400/20 text-sky-400 text-sm font-medium">
-              <Star className="w-4 h-4" />
-              About Luxury 1 Living
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
+            <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">About Us</h3>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">
               Elevating Cleanliness to an{' '}
               <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
                 Art Form
               </span>
             </h2>
-            <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-              At Luxury 1 Living, we believe cleanliness is an experience not just a result. Our mission is to elevate businesses and professional spaces across Greater Houston through detail-driven, white glove service that leaves a lasting impression.
-            </p>
           </div>
 
-          {/* Stats Cards - Enhanced Design */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-            <div className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-sky-400/30 hover:-translate-y-1">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-sky-400 mb-2">20+</div>
-                <div className="text-sm text-slate-300 font-medium">Years Experience</div>
-              </div>
-              <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <Award className="w-6 h-6 text-sky-400" />
-              </div>
-            </div>
-            
-            <div className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-emerald-400/30 hover:-translate-y-1">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-400 mb-2">1000+</div>
-                <div className="text-sm text-slate-300 font-medium">Properties Served</div>
-              </div>
-              <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <Target className="w-6 h-6 text-emerald-400" />
-              </div>
-            </div>
-            
-            <div className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-purple-400/30 hover:-translate-y-1">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400 mb-2">50+</div>
-                <div className="text-sm text-slate-300 font-medium">Team Members</div>
-              </div>
-              <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <Users className="w-6 h-6 text-purple-400" />
-              </div>
-            </div>
-            
-            <div className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-pink-400/30 hover:-translate-y-1">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-pink-400 mb-2">98%</div>
-                <div className="text-sm text-slate-300 font-medium">Satisfaction Rate</div>
-              </div>
-              <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <Star className="w-6 h-6 text-pink-400" />
-              </div>
-            </div>
-          </div>
-
-          {/* Core Values Section - Redesigned */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
-            <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-sky-400/10 to-sky-400/5 border border-sky-400/20 transition-all duration-300 hover:bg-sky-400/15 hover:border-sky-400/40 hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-sky-400/20 text-sky-400 ring-1 ring-inset ring-sky-400/30 transition-colors group-hover:bg-sky-400/30">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-white">Craftsmanship</h3>
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                We treat every property as a showcase, perfecting even the smallest details—because true luxury is felt, not just seen.
-              </p>
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Sparkles className="w-5 h-5 text-sky-400" />
-              </div>
-            </div>
-
-            <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-emerald-400/10 to-emerald-400/5 border border-emerald-400/20 transition-all duration-300 hover:bg-emerald-400/15 hover:border-emerald-400/40 hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-emerald-400/20 text-emerald-400 ring-1 ring-inset ring-emerald-400/30 transition-colors group-hover:bg-emerald-400/30">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-white">Health-First</h3>
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                We use hospital-grade disinfectants and eco-certified solutions, ensuring a safe, healthy environment for your staff and guests.
-              </p>
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              </div>
-            </div>
-
-            <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-purple-400/10 to-purple-400/5 border border-purple-400/20 transition-all duration-300 hover:bg-purple-400/15 hover:border-purple-400/40 hover:-translate-y-2">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-purple-400/20 text-purple-400 ring-1 ring-inset ring-purple-400/30 transition-colors group-hover:bg-purple-400/30">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-white">24/7 Response</h3>
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Our concierge team is available around the clock for urgent needs—so you're never left waiting for service.
-              </p>
-              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Clock className="w-5 h-5 text-purple-400" />
-              </div>
-            </div>
-          </div>
-
-          {/* Customer Satisfaction Chart - Enhanced */}
-          <div className="max-w-2xl mx-auto">
-            <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <BarChart3 className="w-6 h-6 text-sky-400" />
-                <h3 className="text-xl font-semibold text-white">Customer Satisfaction Index</h3>
-              </div>
-              <div className="h-48 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl font-bold text-sky-400 mb-2">98%</div>
-                  <div className="text-slate-400 text-sm">Based on 500+ client reviews</div>
-                  <div className="flex justify-center mt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
+          {/* Unique About Us Content Layout */}
+          <div className="max-w-5xl mx-auto">
+            {/* Main Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+              {/* Left Side - Elegant Text Layout */}
+              <div className="space-y-8 animate-fade-in-up">
+                {/* Mission Statement */}
+                <div className="relative">
+                  <div className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-sky-400 to-emerald-400 rounded-full"></div>
+                  <div className="pl-8">
+                    <h3 className="text-2xl font-light text-white mb-4">Welcome to Luxury 1 Living</h3>
+                    <p className="text-lg text-slate-300 leading-relaxed mb-4">
+                      At Luxury 1 Living, cleanliness is more than a service it's an experience. We believe that a well maintained space should radiate sophistication, serenity, and care. Founded with the vision to redefine the standards of commercial cleaning, we serve clients who value precision, discretion, and polished results.
+                    </p>
+                    <p className="text-lg text-slate-300 leading-relaxed">
+                      With a background rooted in hospitality and luxury environments, we understand that every detail matters. From boutique office spaces to upscale retail interiors, our tailored approach ensures your space reflects the excellence of your brand.
+                    </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Right Side - Interactive Elements */}
+              <div className="space-y-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                {/* Brand Promise Card */}
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-400/10 to-emerald-400/10 p-8 border border-sky-400/20 backdrop-blur-sm">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-400/5 to-emerald-400/5 rounded-full -translate-y-16 translate-x-16"></div>
+                  <div className="relative z-10">
+                    <h4 className="text-xl font-semibold text-white mb-3">Our Promise</h4>
+                    <p className="text-slate-300 leading-relaxed">
+                      Luxury 1 Living is not just our name it's our commitment to delivering pure luxury through perfectly cleaned spaces.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tagline Display */}
+                <div className="text-center py-6">
+                  <div className="inline-block">
+                    <span className="text-3xl font-light text-white tracking-wide">Pure luxury.</span>
+                    <br />
+                    <span className="text-3xl font-semibold bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent tracking-wide">
+                      Perfectly cleaned.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section - Values Grid */}
+            <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              {/* Value 1 */}
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-400/20 to-emerald-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Sparkles className="w-8 h-8 text-sky-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Sophistication</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Every detail crafted to elevate your space with refined elegance and precision.
+                </p>
+              </div>
+
+              {/* Value 2 */}
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-emerald-400/20 to-purple-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <ShieldCheck className="w-8 h-8 text-emerald-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Discretion</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Professional service delivered with the utmost privacy and respect for your environment.
+                </p>
+              </div>
+
+              {/* Value 3 */}
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-8 h-8 text-purple-400" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Excellence</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Uncompromising standards that ensure your space reflects the highest quality of care.
+                </p>
               </div>
             </div>
           </div>
@@ -156,7 +139,7 @@ export default function AboutSection() {
             <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">The Vision Behind Luxury 1 Living</h2>
           </div>
           
-          {/* Top Section - Photo + Text */}
+                    {/* Top Section - Photo + Text */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Photo Section - Left Side */}
             <div className="relative">

@@ -249,23 +249,38 @@ export default function ServicesSection() {
         </div>
       )}
 
-      {/* Our Process Section - Diagram Style */}
-      <div className="mt-24 border-t border-white/5 pt-16">
-        <div className="text-center mb-16">
+      {/* Our Process Section - Diagram Style with Background Image */}
+      <div className="mt-24 border-t border-white/5 pt-16 relative" style={{ minHeight: '600px' }}>
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src="/images/ourprocess.jpeg" 
+            alt="" 
+            className="w-full h-full object-cover"
+            style={{ 
+              opacity: 0.5,
+              filter: 'brightness(0.7) contrast(1.1)'
+            }}
+          />
+          {/* Dark overlay to ensure text readability */}
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.4)' }}></div>
+        </div>
+        
+        <div className="text-center mb-16 relative z-10">
           <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">Our Process</h3>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">From First Call to Final Clean</h2>
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed mt-6 max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed mt-6 max-w-4xl mx-auto">
             At Luxury 1 Living, we make it easy to get the premium cleaning your space deserves. Our streamlined process ensures clear communication, reliable scheduling, and sparkling results without the stress.
           </p>
         </div>
 
         {/* Process Diagram */}
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-6xl mx-auto z-10">
           {/* Connection Lines */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400/30 via-emerald-400/30 to-purple-400/30 transform -translate-y-1/2 z-0"></div>
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400/40 via-emerald-400/40 to-purple-400/40 transform -translate-y-1/2 z-0"></div>
           
           {/* Mobile Connection Lines */}
-          <div className="lg:hidden absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400/30 via-emerald-400/30 to-purple-400/30 transform -translate-x-1/2 z-0"></div>
+          <div className="lg:hidden absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400/40 via-emerald-400/40 to-purple-400/40 transform -translate-x-1/2 z-0"></div>
 
           {/* Process Steps */}
           <div className="relative z-10 grid lg:grid-cols-3 gap-8 lg:gap-12">
@@ -273,27 +288,27 @@ export default function ServicesSection() {
             <div className="relative">
               {/* Arrow for Desktop */}
               <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                <svg className="w-12 h-6 text-emerald-400/50" fill="none" viewBox="0 0 48 24">
+                <svg className="w-12 h-6 text-emerald-400/60" fill="none" viewBox="0 0 48 24">
                   <path d="M0 12L44 12M44 12L36 6M44 12L36 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               
               {/* Arrow for Mobile */}
               <div className="lg:hidden absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                <svg className="w-6 h-12 text-emerald-400/50" fill="none" viewBox="0 0 24 48">
+                <svg className="w-6 h-12 text-emerald-400/60" fill="none" viewBox="0 0 24 48">
                   <path d="M12 0L12 44M12 44L6 36M12 44L18 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/40 border border-sky-400/20 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-300 group">
+              <div className="border border-sky-400/30 rounded-2xl p-8 hover:border-sky-400/50 transition-all duration-300 group backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(10px)' }}>
                 {/* Step Number */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-sky-400/10 border-2 border-sky-400/30 flex items-center justify-center text-2xl font-bold text-sky-400 group-hover:bg-sky-400/20 group-hover:border-sky-400/50 transition-all duration-300">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-sky-400/20 border-2 border-sky-400/40 flex items-center justify-center text-2xl font-bold text-sky-400 group-hover:bg-sky-400/30 group-hover:border-sky-400/60 transition-all duration-300">
                   1
                 </div>
 
                 <div className="text-center space-y-3">
                   <h4 className="text-xl font-semibold text-white">Request Your Service</h4>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <p className="text-slate-300 leading-relaxed text-sm">
                     Start by selecting the cleaning service that fits your needs. Submit a quick form and we'll reach out to gather details about your facility.
                   </p>
                 </div>
@@ -304,27 +319,27 @@ export default function ServicesSection() {
             <div className="relative">
               {/* Arrow for Desktop */}
               <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                <svg className="w-12 h-6 text-purple-400/50" fill="none" viewBox="0 0 48 24">
+                <svg className="w-12 h-6 text-purple-400/60" fill="none" viewBox="0 0 48 24">
                   <path d="M0 12L44 12M44 12L36 6M44 12L36 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               
               {/* Arrow for Mobile */}
               <div className="lg:hidden absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                <svg className="w-6 h-12 text-purple-400/50" fill="none" viewBox="0 0 24 48">
+                <svg className="w-6 h-12 text-purple-400/60" fill="none" viewBox="0 0 24 48">
                   <path d="M12 0L12 44M12 44L6 36M12 44L18 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/40 border border-emerald-400/20 rounded-2xl p-8 hover:border-emerald-400/40 transition-all duration-300 group">
+              <div className="border border-emerald-400/30 rounded-2xl p-8 hover:border-emerald-400/50 transition-all duration-300 group backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(10px)' }}>
                 {/* Step Number */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-emerald-400/10 border-2 border-emerald-400/30 flex items-center justify-center text-2xl font-bold text-emerald-400 group-hover:bg-emerald-400/20 group-hover:border-emerald-400/50 transition-all duration-300">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-emerald-400/20 border-2 border-emerald-400/40 flex items-center justify-center text-2xl font-bold text-emerald-400 group-hover:bg-emerald-400/30 group-hover:border-emerald-400/60 transition-all duration-300">
                   2
                 </div>
 
                 <div className="text-center space-y-3">
                   <h4 className="text-xl font-semibold text-white">Schedule & Quote</h4>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <p className="text-slate-300 leading-relaxed text-sm">
                     We'll arrange a site visit to understand your space and goals. You'll receive a tailored quote with clear pricing and a proposed cleaning plan.
                   </p>
                 </div>
@@ -333,15 +348,15 @@ export default function ServicesSection() {
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/40 border border-purple-400/20 rounded-2xl p-8 hover:border-purple-400/40 transition-all duration-300 group">
+              <div className="border border-purple-400/30 rounded-2xl p-8 hover:border-purple-400/50 transition-all duration-300 group backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(10px)' }}>
                 {/* Step Number */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-400/10 border-2 border-purple-400/30 flex items-center justify-center text-2xl font-bold text-purple-400 group-hover:bg-purple-400/20 group-hover:border-purple-400/50 transition-all duration-300">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-400/20 border-2 border-purple-400/40 flex items-center justify-center text-2xl font-bold text-purple-400 group-hover:bg-purple-400/30 group-hover:border-purple-400/60 transition-all duration-300">
                   3
                 </div>
 
                 <div className="text-center space-y-3">
                   <h4 className="text-xl font-semibold text-white">Enjoy a Spotless Space</h4>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <p className="text-slate-300 leading-relaxed text-sm">
                     Once approved, our professional team arrives fully equipped and ready to work. We'll leave your space flawless and follow up to ensure satisfaction.
                   </p>
                 </div>
@@ -374,16 +389,7 @@ export default function ServicesSection() {
         </svg>
       </div>
 
-      {/* Full-Width Staff Working Image */}
-      <div className="mt-24 relative">
-        <div className="relative w-full h-96 lg:h-[500px] overflow-hidden rounded-2xl">
-          <img 
-            src="/images/ourprocess.jpeg" 
-            alt="Luxury 1 Living staff working professionally" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
+
     </section>
   );
 } 

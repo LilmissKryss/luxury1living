@@ -64,43 +64,84 @@ export default function FAQSection() {
         </p>
       </div>
 
-      {/* FAQ Accordion */}
-      <div className="max-w-4xl mx-auto">
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="bg-slate-900/50 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-sky-400/30"
-            >
-              <button
-                onClick={() => toggleFaq(faq.id)}
-                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-slate-800/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
-              >
-                <h4 className="text-lg font-semibold text-white pr-4">
-                  {faq.question}
-                </h4>
-                <div className="flex-shrink-0">
-                  {openFaq === faq.id ? (
-                    <ChevronUp className="w-5 h-5 text-sky-400" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400" />
-                  )}
-                </div>
-              </button>
-              
+      {/* FAQ Accordion - Two Column Layout */}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Left Column - First 4 FAQs */}
+          <div className="space-y-4">
+            {faqs.slice(0, 4).map((faq) => (
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openFaq === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                key={faq.id}
+                className="bg-slate-900/50 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-sky-400/30"
               >
-                <div className="px-6 pb-6">
-                  <p className="text-slate-400 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <button
+                  onClick={() => toggleFaq(faq.id)}
+                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-slate-800/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+                >
+                  <h4 className="text-lg font-semibold text-white pr-4">
+                    {faq.question}
+                  </h4>
+                  <div className="flex-shrink-0">
+                    {openFaq === faq.id ? (
+                      <ChevronUp className="w-5 h-5 text-sky-400" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400" />
+                    )}
+                  </div>
+                </button>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-6 pb-6">
+                    <p className="text-slate-400 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Right Column - Last 4 FAQs */}
+          <div className="space-y-4">
+            {faqs.slice(4, 8).map((faq) => (
+              <div
+                key={faq.id}
+                className="bg-slate-900/50 border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-sky-400/30"
+              >
+                <button
+                  onClick={() => toggleFaq(faq.id)}
+                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-slate-800/30 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
+                >
+                  <h4 className="text-lg font-semibold text-white pr-4">
+                    {faq.question}
+                  </h4>
+                  <div className="flex-shrink-0">
+                    {openFaq === faq.id ? (
+                      <ChevronUp className="w-5 h-5 text-sky-400" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400" />
+                    )}
+                  </div>
+                </button>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaq === faq.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-6 pb-6">
+                    <p className="text-slate-400 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

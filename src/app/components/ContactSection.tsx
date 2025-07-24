@@ -7,6 +7,7 @@ export default function ContactSection() {
     name: '',
     email: '',
     phone: '',
+    bestTimeToCall: '',
     company: '',
     serviceType: '',
     facilitySize: '',
@@ -44,7 +45,18 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="container mx-auto pt-16 pr-4 pb-16 pl-4 sm:px-6 sm:py-24 border-t border-white/5">
+    <section id="contact" className="relative container mx-auto pt-16 pr-4 pb-16 pl-4 sm:px-6 sm:py-24 border-t border-white/5" style={{ minHeight: '100vh' }}>
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src="/images/contact.jpg" 
+          alt="" 
+          className="w-full h-full object-cover"
+          style={{ opacity: 0.3 }}
+        />
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-slate-900/70"></div>
+      </div>
       {/* Header */}
       <div className="text-center mb-16">
         <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">Contact Us</h3>
@@ -57,7 +69,7 @@ export default function ContactSection() {
       {/* Main Cards Container */}
       <div className="grid lg:grid-cols-2 gap-8 mb-8">
         {/* Left Card - Contact Form */}
-        <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-8">
+        <div className="border border-white/20 rounded-2xl p-8 backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)' }}>
           <h4 className="text-xl font-semibold text-white mb-6">Request Your Quote</h4>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
@@ -72,7 +84,8 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                   placeholder="Your full name"
                 />
               </div>
@@ -87,7 +100,8 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                   placeholder="your.email@company.com"
                 />
               </div>
@@ -104,24 +118,46 @@ export default function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                   placeholder="(555) 123-4567"
                 />
               </div>
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-2">
-                  Company Name
+                <label htmlFor="bestTimeToCall" className="block text-sm font-medium text-slate-300 mb-2">
+                  Best Time to Call
                 </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
+                <select
+                  id="bestTimeToCall"
+                  name="bestTimeToCall"
+                  value={formData.bestTimeToCall}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
-                  placeholder="Your company name"
-                />
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
+                >
+                  <option value="">Select best time</option>
+                  <option value="morning">Morning (8 AM - 12 PM)</option>
+                  <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                  <option value="evening">Evening (5 PM - 8 PM)</option>
+                  <option value="anytime">Anytime</option>
+                </select>
               </div>
+            </div>
+
+            <div>
+              <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-2">
+                Company Name
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
+                placeholder="Your company name"
+              />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -135,7 +171,8 @@ export default function ContactSection() {
                   value={formData.serviceType}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                 >
                   <option value="">Select a service</option>
                   <option value="corporate">Corporate Office Cleaning</option>
@@ -162,7 +199,8 @@ export default function ContactSection() {
                   value={formData.facilitySize}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                   placeholder="e.g., 5,000 sq ft"
                 />
               </div>
@@ -179,7 +217,8 @@ export default function ContactSection() {
                   value={formData.serviceSchedule}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                 >
                   <option value="">Select schedule</option>
                   <option value="one-time">One-time service</option>
@@ -199,7 +238,8 @@ export default function ContactSection() {
                   value={formData.serviceLocation}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg text-white focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                 >
                   <option value="">Select location</option>
                   <option value="downtown">Downtown Houston</option>
@@ -229,7 +269,8 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full px-4 py-3 bg-slate-800/50 border border-white/10 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors resize-none"
+                className="w-full px-4 py-3 border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-sky-400/50 focus:ring-1 focus:ring-sky-400/20 transition-colors resize-none backdrop-blur-sm"
+                style={{ backgroundColor: 'rgba(30, 41, 59, 0.8)' }}
                 placeholder="Tell us about any special requirements, specific areas that need attention, or any other details that will help us provide the best quote..."
               />
             </div>
@@ -244,7 +285,7 @@ export default function ContactSection() {
         </div>
 
         {/* Right Card - Contact Information & Map */}
-        <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-8 flex flex-col">
+        <div className="border border-white/20 rounded-2xl p-8 flex flex-col backdrop-blur-sm" style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)' }}>
           {/* Contact Information */}
           <div className="space-y-6 mb-8">
             <h4 className="text-xl font-semibold text-white">Contact Information</h4>
@@ -308,6 +349,22 @@ export default function ContactSection() {
                   <p className="text-slate-400">Sunday: Closed</p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-red-500/10 rounded-lg">
+                  <AlertCircle className="w-4 h-4 text-red-400" />
+                </div>
+                <div>
+                  <p className="text-white font-medium">Emergency Contact</p>
+                  <a 
+                    href="tel:281-721-0766" 
+                    className="text-slate-400 hover:text-red-400 transition-colors cursor-pointer"
+                  >
+                    281-721-0766
+                  </a>
+                  <p className="text-slate-400 text-sm">Available 24/7 for urgent cleaning needs</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -330,13 +387,9 @@ export default function ContactSection() {
                   <Phone className="w-4 h-4" style={{ color: 'rgb(244, 230, 186)' }} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium mb-1" style={{ color: 'rgb(244, 230, 186)' }}>Don't see your area?</p>
+                  <p className="text-sm font-medium mb-1" style={{ color: 'rgb(244, 230, 186)' }}>Don't see your area listed?</p>
                   <p className="text-xs" style={{ color: 'rgba(244, 230, 186, 0.8)' }}>
-                    Give us a call at{' '}
-                    <a href="tel:281-721-0766" className="font-medium hover:opacity-80 transition-opacity" style={{ color: 'rgb(244, 230, 186)' }}>
-                      281-721-0766
-                    </a>
-                    {' '}to discuss service availability in your location.
+                    Contact us we're always expanding our service territory to meet growing demand.
                   </p>
                 </div>
               </div>
@@ -362,27 +415,7 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Emergency Contact Card - Below both cards */}
-      <div className="bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/20 rounded-2xl p-8">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-red-500/20 rounded-lg">
-            <AlertCircle className="w-5 h-5 text-red-400" />
-          </div>
-          <h4 className="text-lg font-semibold text-white">Emergency Contact</h4>
-        </div>
-        <div className="flex items-center gap-3 mb-2">
-          <Phone className="w-4 h-4 text-red-400" />
-          <a 
-            href="tel:281-721-0766" 
-            className="text-white font-medium text-lg hover:text-red-300 transition-colors cursor-pointer"
-          >
-            281-721-0766
-          </a>
-        </div>
-        <p className="text-slate-400">
-          Available 24/7 for urgent cleaning needs
-        </p>
-      </div>
+
     </section>
   );
 } 
