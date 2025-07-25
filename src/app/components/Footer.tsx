@@ -39,9 +39,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold tracking-tight text-white">Luxury 1 Living</h3>
             <p className="text-slate-400 leading-relaxed text-sm">
-              Pure luxury cleaning solutions for businesses and commercial spaces. 
-              We deliver exceptional cleanliness with attention to every detail, 
-              serving Greater Houston and surrounding areas.
+            Luxury premium commercial cleaning services
             </p>
             <div className="flex gap-3">
               <a href="#" aria-label="Facebook" className="p-2 rounded-lg bg-sky-400/10 hover:bg-sky-400/20 text-sky-400 transition-colors">
@@ -174,7 +172,7 @@ export default function Footer() {
         <div className="border-t border-white/5 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-slate-400 text-sm">
-              © 2024 Luxury 1 Living. All rights reserved.
+              © 2025 Luxury 1 Living. All rights reserved.
             </div>
             <div className="flex gap-6 text-sm">
               <a href="#privacy" className="text-slate-400 hover:text-white transition-colors">

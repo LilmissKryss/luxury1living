@@ -10,9 +10,15 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
+function getSectionFromHash(hash: string) {
+  if (!hash || hash === '#home') return 'home';
+  return hash.replace('#', '');
+}
+
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentSection, setCurrentSection] = useState('home');
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLDivElement>(null);
 
@@ -21,9 +27,25 @@ export default function Navigation() {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 10);
+
+      // Scrollspy logic
+      const sectionIds = navLinks.map(link => link.href.replace('#', ''));
+      let found = 'home';
+      for (let i = 0; i < sectionIds.length; i++) {
+        const section = document.getElementById(sectionIds[i]);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            found = sectionIds[i];
+            break;
+          }
+        }
+      }
+      setCurrentSection(found);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -54,7 +76,7 @@ export default function Navigation() {
         : 'bg-transparent border-b border-white/5'
     }`}>
       <div className="flex items-center justify-between pt-4 pr-4 pb-4 pl-4 sm:px-6 relative z-20">
-        <a href="#home" className="text-lg sm:text-xl font-semibold text-white tracking-tight hover:text-sky-300 transition-colors cursor-pointer">Luxury 1 Living</a>
+        <a href="#home" className="text-lg sm:text-xl font-semibold text-white tracking-tight hover:text-sky-300 transition-all duration-300 cursor-pointer animate-logo-glow">Luxury 1 Living</a>
 
         {/* Mobile menu button */}
         <button
@@ -74,13 +96,18 @@ export default function Navigation() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-slate-300 hover:text-white transition-colors"
+              className={`text-sm text-slate-300 hover:text-white transition-all duration-300 animate-nav-hover ${
+                currentSection === link.href.replace('#', '') ? 'border-b-2 border-sky-400 text-white' : ''
+              } pb-1`}
+              style={{
+                transition: 'border-color 0.3s',
+              }}
             >
               {link.label}
             </a>
           ))}
-          <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm transition-colors">Sign Up</button>
-          <button className="hover:bg-emerald-600 transition-colors text-sm font-semibold text-white bg-sky-400 rounded-lg pt-2 pr-4 pb-2 pl-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70">Book Now</button>
+          <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm transition-all duration-300 hover:scale-105">Sign Up</button>
+          <button className="hover:bg-emerald-600 transition-all duration-300 text-sm font-semibold text-white bg-sky-400 rounded-lg pt-2 pr-4 pb-2 pl-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70 hover:scale-105 animate-breathing-glow">Book Now</button>
         </nav>
 
         {/* Mobile nav */}

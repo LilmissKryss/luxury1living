@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import ScrollAnimation from './ScrollAnimation';
 
 const services = [
   {
@@ -164,39 +165,51 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="container mx-auto pt-16 pr-4 pb-16 pl-4 sm:px-6 sm:py-24 border-t border-white/5">
-      <div className="space-y-4">
-        <div className="text-center">
-          <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">Our Services</h3>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">Tailored Cleaning Solutions</h2>
+      <ScrollAnimation animationType="fade-in" delay={200}>
+        <div className="space-y-4">
+          <div className="text-center">
+            <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider animate-shimmer">Our Services</h3>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+              Tailored Cleaning Solutions
+            </h2>
+          </div>
+          <div className="text-left space-y-4">
+            <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+              At Luxury 1 Living, we believe a clean space is a reflection of your brand's excellence. That's why we offer luxury premium commercial cleaning solutions tailored to meet the unique needs of businesses across every industry. Whether you're looking for daily maintenance, deep cleaning, or specialty services, we're here to elevate your environment so you can focus on what matters most.
+            </p>
+          </div>
         </div>
-        <div className="text-left space-y-4">
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
-            At Luxury 1 Living, we believe a clean space is a reflection of your brand's excellence. That's why we offer luxury premium commercial cleaning solutions tailored to meet the unique needs of businesses across every industry. Whether you're looking for daily maintenance, deep cleaning, or specialty services, we're here to elevate your environment so you can focus on what matters most.
-          </p>
-        </div>
-      </div>
+      </ScrollAnimation>
 
       {/* Service Category Tabs */}
-      <div className="mt-16 flex flex-wrap justify-center gap-2">
-        {serviceCategories.map((category) => (
-          <button
-            key={category.id}
-            onClick={() => setActiveCategory(category.id)}
-            className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-              activeCategory === category.id
-                ? 'bg-sky-400 text-white shadow-lg shadow-sky-400/25'
-                : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
-            }`}
-          >
-            {category.label}
-          </button>
-        ))}
-      </div>
+      <ScrollAnimation animationType="slide-up" delay={400}>
+        <div className="mt-16 flex flex-wrap justify-center gap-2">
+          {serviceCategories.map((category, index) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                activeCategory === category.id
+                  ? 'bg-sky-400 text-white shadow-lg shadow-sky-400/25 animate-breathing-glow'
+                  : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
+              }`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </ScrollAnimation>
 
       {/* Services Grid */}
-      <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredServices.map((service) => (
-          <article key={service.id} className="group bg-slate-900/50 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-sky-400/30 hover:shadow-xl hover:shadow-sky-400/10">
+      <ScrollAnimation animationType="fade-in" delay={600}>
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredServices.map((service, index) => (
+            <article 
+              key={service.id} 
+              className="group bg-slate-900/50 rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-sky-400/30 hover:shadow-xl hover:shadow-sky-400/10 animate-card-hover"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
             {/* Service Image */}
             <div className="relative h-48 overflow-hidden">
               <img
@@ -240,7 +253,8 @@ export default function ServicesSection() {
             </div>
           </article>
         ))}
-      </div>
+        </div>
+      </ScrollAnimation>
 
       {/* No Services Message */}
       {filteredServices.length === 0 && (
@@ -249,24 +263,9 @@ export default function ServicesSection() {
         </div>
       )}
 
-      {/* Our Process Section - Diagram Style with Background Image */}
+      {/* Our Process Section - Diagram Style */}
       <div className="mt-24 border-t border-white/5 pt-16 relative" style={{ minHeight: '600px' }}>
-        {/* Background Image */}
-        <div className="absolute inset-0 -z-10">
-          <img 
-            src="/images/ourprocess.jpg" 
-            alt="" 
-            className="w-full h-full object-cover"
-            style={{ 
-              opacity: 0.7,
-              filter: 'brightness(0.8) contrast(1.2)'
-            }}
-          />
-          {/* Dark overlay to ensure text readability */}
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15, 23, 42, 0.3)' }}></div>
-        </div>
-        
-        <div className="text-center mb-16 relative z-10">
+        <div className="text-center mb-16">
           <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">Our Process</h3>
           <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">From First Call to Final Clean</h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed mt-6 max-w-4xl mx-auto">
@@ -275,7 +274,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Process Diagram */}
-        <div className="relative max-w-6xl mx-auto z-10">
+        <div className="relative max-w-6xl mx-auto">
           {/* Connection Lines */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400/40 via-emerald-400/40 to-purple-400/40 transform -translate-y-1/2 z-0"></div>
           

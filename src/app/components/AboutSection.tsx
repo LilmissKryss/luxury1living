@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { Sparkles, ShieldCheck, Clock, BarChart3, Star, Award, Users, Target } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function AboutSection() {
   return (
@@ -35,22 +36,25 @@ export default function AboutSection() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           {/* Enhanced Header Section */}
-          <div className="max-w-4xl mx-auto text-center space-y-6 mb-20">
-            <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider">About Us</h3>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">
-              Elevating Cleanliness to an{' '}
-              <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">
-                Art Form
-              </span>
-            </h2>
-          </div>
+          <ScrollAnimation animationType="fade-in" delay={200}>
+            <div className="max-w-4xl mx-auto text-center space-y-6 mb-20">
+              <h3 className="text-sky-400 text-sm font-semibold uppercase tracking-wider animate-shimmer">About Us</h3>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mt-2">
+                Elevating Cleanliness to an{' '}
+                <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-shift">
+                  Art Form
+                </span>
+              </h2>
+            </div>
+          </ScrollAnimation>
 
           {/* Unique About Us Content Layout */}
           <div className="max-w-5xl mx-auto">
             {/* Main Content Grid */}
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
               {/* Left Side - Elegant Text Layout */}
-              <div className="space-y-8 animate-fade-in-up">
+              <ScrollAnimation animationType="slide-left" delay={400}>
+                <div className="space-y-8">
                 {/* Mission Statement */}
                 <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-sky-400 to-emerald-400 rounded-full"></div>
@@ -66,8 +70,11 @@ export default function AboutSection() {
                 </div>
               </div>
 
+              </ScrollAnimation>
+
               {/* Right Side - Interactive Elements */}
-              <div className="space-y-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <ScrollAnimation animationType="slide-right" delay={600}>
+                <div className="space-y-6">
                 {/* Brand Promise Card */}
                 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-400/10 to-emerald-400/10 p-8 border border-sky-400/20 backdrop-blur-sm">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-400/5 to-emerald-400/5 rounded-full -translate-y-16 translate-x-16"></div>
@@ -98,11 +105,13 @@ export default function AboutSection() {
                     </span>
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollAnimation>
             </div>
 
             {/* Bottom Section - Values Grid */}
-            <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <ScrollAnimation animationType="fade-in" delay={800}>
+              <div className="grid md:grid-cols-3 gap-8">
               {/* Value 1 */}
               <div className="text-center group">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-400/20 to-emerald-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -135,7 +144,8 @@ export default function AboutSection() {
                   Uncompromising standards that ensure your space reflects the highest quality of care.
                 </p>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

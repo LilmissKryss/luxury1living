@@ -32,29 +32,28 @@ export default function HeroSection() {
         <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 rounded-full blur-sm animate-pulse" style={{ animationDelay: '0.7s' }}></div>
       </div>
       <div className="space-y-8 lg:pt-20 pl-12">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-tight">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-tight animate-hero-title">
           Pure Luxury,<br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-tr from-teal-400 to-blue-500">Perfectly Cleaned</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-tr from-teal-400 to-blue-500 animate-gradient-shift">Perfectly Cleaned</span>
         </h2>
-        <p className="max-w-xl text-lg sm:text-xl font-medium leading-tight text-slate-300 tracking-wide" style={{ fontFamily: 'Bitcount Prop Double, monospace', letterSpacing: '0.02em' }}>
+        <p className="max-w-xl text-lg sm:text-xl font-medium leading-tight text-slate-300 tracking-wide animate-hero-subtitle" style={{ fontFamily: 'Bitcount Prop Double, monospace', letterSpacing: '0.02em' }}>
           Luxury premium commercial cleaning services crafted for businesses that expect flawless attention to detail, discreet professionalism, and a polished finish that speaks volumes.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a 
             href="#contact" 
-            className="flex gap-2 items-center font-semibold bg-sky-400 hover:bg-emerald-600 text-white rounded-lg pt-3 pr-6 pb-3 pl-6 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70"
+            className="flex gap-2 items-center font-semibold bg-sky-400 hover:bg-emerald-600 text-white rounded-lg pt-3 pr-6 pb-3 pl-6 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/70 animate-cta-pulse hover:scale-105"
           >
-            <MessageSquare className="w-4 h-4" /> Get a Quote
+            <MessageSquare className="w-4 h-4 animate-icon-bounce" /> Get a Quote
           </a>
-          <button className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40">
+          <button className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 hover:scale-105">
             <UserPlus className="w-4 h-4" /> Sign Up
           </button>
         </div>
         <div className="mt-12 text-center">
-          <blockquote className="text-lg sm:text-xl font-medium text-sky-300 tracking-wide italic relative" style={{ fontFamily: 'Lexend, sans-serif', letterSpacing: '0.05em' }}>
+          <blockquote className="text-lg sm:text-xl font-medium text-sky-300 tracking-wide italic relative animate-gentle-float" style={{ fontFamily: 'Lexend, sans-serif', letterSpacing: '0.05em' }}>
             "Serving Greater Houston<br />
             and surrounding areas"
-
           </blockquote>
         </div>
       </div>
@@ -62,9 +61,13 @@ export default function HeroSection() {
         <img
           src="/images/hero.png"
           alt="Luxury 1 Living commercial cleaning services"
-          className="w-4/5 mx-auto h-72 sm:h-[26rem] lg:h-full object-cover rounded-3xl shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+          className="w-4/5 mx-auto h-72 sm:h-[26rem] lg:h-full object-cover rounded-3xl shadow-lg transition-all duration-500 group-hover:scale-[1.02] animate-hero-image"
         />
         <span className="absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-950/50 to-slate-950/0 pointer-events-none"></span>
+        {/* Sparkle effects */}
+        <div className="absolute top-4 right-4 w-3 h-3 bg-sky-400/60 rounded-full animate-sparkle"></div>
+        <div className="absolute bottom-8 left-8 w-2 h-2 bg-emerald-400/50 rounded-full animate-sparkle" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-teal-400/40 rounded-full animate-sparkle" style={{ animationDelay: '2s' }}></div>
       </div>
     </section>
   );
